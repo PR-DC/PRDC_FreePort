@@ -3,6 +3,12 @@ PRDC_FreePort
 VFD FreePort Protocol implemented in Arduino library
 --------------------
 
+Release 1.0.1, 25.01.2022.
+
+- Arduino library specification
+
+--------------------
+
 Release 1.0.0, 28.12.2021.
 
 - Initial release

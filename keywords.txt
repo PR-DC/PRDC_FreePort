@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PRDC_FreePort KEYWORD1 PRDC_FreePort
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+attach KEYWORD2
+readData KEYWORD2
+sendData KEYWORD2
+availableData KEYWORD2
+flushInput KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+PRDC_FreePort_M1 LITERAL1
+PRDC_FreePort_M2 LITERAL1
+FreePort_MAX_PACKET_SIZE LITERAL1
