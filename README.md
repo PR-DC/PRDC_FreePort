@@ -6,7 +6,7 @@ FreePort Protocol for communication with VFD over RS485 implemented in Arduino l
 [Arduino](https://www.arduino.cc/)<br>
 
 This library is tested with 
-**Arduino IDE 1.8.16**.
+**Arduino IDE 1.8.19**.
 
 ## Installation
 Clone the repository to the Arduino libraries folder.
@@ -23,7 +23,7 @@ For more information please visit: https://www.arduino.cc/en/guide/libraries#toc
 For usage please check provided examples. 
 
 ## License
-Copyright (C) 2021 PR-DC <info@pr-dc.com>
+Copyright (C) 2023 PR-DC <info@pr-dc.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as 

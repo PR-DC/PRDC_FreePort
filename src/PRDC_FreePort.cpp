@@ -39,7 +39,7 @@ void PRDC_FreePort::attach(Stream& stream) {
 // Calculate checkout sum
 // --------------------
 void PRDC_FreePort::getCKS(char* cks, char* data, int8_t N) {
-  unsigned int sum = 0;
+  uint16_t sum = 0;
   for (uint16_t i = 0; i < N; i++) {
     sum = sum+(uint8_t)data[i];
   }
@@ -67,14 +67,14 @@ uint32_t PRDC_FreePort::availableData() {
 // readData() function
 // Read data
 // Inputs: 
-// uint16_t DA - Auxilary device address (decimal)
+// uint8_t DA - Auxilary device address (decimal)
 // char DR[2] - Auxilary device response (ASCII)
-// uint16_t FI - Failure index (decimal)
+// uint8_t FI - Failure index (decimal)
 // char CI[2] - Command index (ASCII)
-// uint32_t RD - Run data (decimal)
+// uint16_t RD - Run data (decimal)
 // --------------------
-bool PRDC_FreePort::readData(uint16_t* DA, char* DR, uint16_t* FI, \
-    char* CI, uint32_t* RD) {
+bool PRDC_FreePort::readData(uint8_t* DA, char* DR, uint8_t* FI, \
+    char* CI, uint16_t* RD) {
   bool flagIn = 0;
   if(_serial->available()) {
     flagIn = decodeData(DA, DR, FI, CI, RD);
@@ -85,8 +85,8 @@ bool PRDC_FreePort::readData(uint16_t* DA, char* DR, uint16_t* FI, \
 // decodeData() function
 // Decode data
 // --------------------
-bool PRDC_FreePort::decodeData(uint16_t* DA, char* DR, uint16_t* FI, \
-    char* CI, uint32_t* RD) {
+bool PRDC_FreePort::decodeData(uint8_t* DA, char* DR, uint8_t* FI, \
+    char* CI, uint16_t* RD) {
   bool flagIn = 0;
   char cks[5];
   while(_serial->available()) {
@@ -155,11 +155,11 @@ bool PRDC_FreePort::decodeData(uint16_t* DA, char* DR, uint16_t* FI, \
 // sendData() function
 // Send packet
 // Inputs: 
-// uint16_t DA - Auxilary device address (decimal)
-// uint16_t DC - Main device command (decimal)
-// uint16_t AI - Assistant index (decimal)
-// uint16_t CI - Command index (decimal)
-// uint32_t SD - Set data (decimal)
+// uint8_t DA - Auxilary device address (decimal)
+// uint8_t DC - Main device command (decimal)
+// uint8_t AI - Assistant index (decimal)
+// uint8_t CI - Command index (decimal)
+// uint16_t SD - Set data (decimal)
 // --------------------
 void PRDC_FreePort::sendData(char* dataOut) {
   char cks[5];
@@ -177,17 +177,17 @@ void PRDC_FreePort::sendData(char* dataOut) {
   #endif
 }
 
-void PRDC_FreePort::sendData(uint16_t DA, uint16_t DC, uint16_t AI, \
-    uint16_t CI) {
+void PRDC_FreePort::sendData(uint8_t DA, uint8_t DC, uint8_t AI, \
+    uint8_t CI) {
   char dataOut[9];
   snprintf(dataOut, 9, "%02X%02X%02X%02X", DA, DC, AI, CI);
   sendData(dataOut);
 }
 
-void PRDC_FreePort::sendData(uint16_t DA, uint16_t DC, uint16_t AI, \
-    uint16_t CI, uint32_t SD) {
+void PRDC_FreePort::sendData(uint8_t DA, uint8_t DC, uint8_t AI, \
+    uint8_t CI, uint16_t SD) {
   char dataOut[13];
-  snprintf(dataOut, 13, "%02X%02X%02X%02X%04X", DA, DC, AI, CI, (unsigned int)SD);
+  snprintf(dataOut, 13, "%02X%02X%02X%02X%04X", DA, DC, AI, CI, SD);
   sendData(dataOut);
 }
 

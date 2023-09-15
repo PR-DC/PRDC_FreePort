@@ -41,10 +41,10 @@
 class PRDC_FreePort {
   public:
     void attach(Stream& stream);
-    bool readData(uint16_t*, char*, uint16_t*, char*, uint32_t*);
+    bool readData(uint8_t*, char*, uint8_t*, char*, uint16_t*);
     void sendData(char*);
-    void sendData(uint16_t, uint16_t, uint16_t, uint16_t);
-    void sendData(uint16_t, uint16_t, uint16_t, uint16_t, uint32_t);
+    void sendData(uint8_t, uint8_t, uint8_t, uint8_t);
+    void sendData(uint8_t, uint8_t, uint8_t, uint8_t, uint16_t);
     uint32_t availableData();
     void flushInput();
 
@@ -55,7 +55,7 @@ class PRDC_FreePort {
     char cksIn[5];
     void getCKS(char*, char*, int8_t);
     void getCKS(char*, char*);
-    bool decodeData(uint16_t*, char*, uint16_t*, char*, uint32_t*);
+    bool decodeData(uint8_t*, char*, uint8_t*, char*, uint16_t*);
     static uint8_t h2ui(char);
 };
 #endif // _PRDC_FreePort_H_
