@@ -51,7 +51,7 @@ class PRDC_FreePort {
   private:
     Stream* _serial;
     char dataInTemp[FreePort_MAX_PACKET_SIZE+1];  // data in buffer
-    uint16_t k = 0;
+    uint16_t k = 1;
     char cksIn[5];
     void getCKS(char*, char*, int8_t);
     void getCKS(char*, char*);
